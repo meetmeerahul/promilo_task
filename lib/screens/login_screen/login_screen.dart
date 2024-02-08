@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:promilo_task/blocs/login/login_bloc.dart';
+
 import 'package:promilo_task/utils/sized_box.dart';
+
+import '../../blocs/bloc/login_bloc.dart';
+import 'widgets/blue_text_below_socialmedia.dart';
+import 'widgets/social_media_icons.dart';
+import 'widgets/text_above_text_box.dart';
+import 'widgets/text_below_socialmedia_icons.dart';
+import 'widgets/text_unde_textbox.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -71,14 +78,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 8, 8, 2),
-                          child: Text(
-                            "Please Sign in to continue",
-                            style: TextStyle(
-                                color: Colors.blue[900], fontSize: 18),
-                          ),
-                        ),
+                        const Padding(
+                            padding: EdgeInsets.fromLTRB(15, 8, 8, 2),
+                            child: TextAboveTextBox(
+                                text: "Please Sign in to continue")),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -112,22 +115,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.width * .6, 0, 8, 2),
-                          child: Text(
-                            "Sign In With OTP",
-                            style: TextStyle(
-                                color: Colors.blue[900],
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
-                          ),
+                              MediaQuery.of(context).size.width * .6, 0, 0, 2),
+                          child:
+                              const TextUnderTextBox(text: "Sign In WIth OTP"),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 8, 8, 2),
-                          child: Text(
-                            "Password",
-                            style: TextStyle(
-                                color: Colors.blue[900], fontSize: 18),
-                          ),
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(15, 8, 8, 2),
+                          child: TextAboveTextBox(text: "Password"),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -177,17 +171,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Padding(
                               padding: EdgeInsets.fromLTRB(
-                                  MediaQuery.of(context).size.width * .25,
-                                  0,
-                                  8,
-                                  2),
-                              child: Text(
-                                "Forget Password",
-                                style: TextStyle(
-                                    color: Colors.blue[900],
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
+                                MediaQuery.of(context).size.width * .25,
+                                0,
+                                8,
+                                2,
                               ),
+                              child: const TextUnderTextBox(
+                                  text: "Forget Password"),
                             ),
                           ],
                         ),
@@ -221,63 +211,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text("Or"),
                         ),
                         sizedBoxHeight(10),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
-                            child: Row(
-                              children: [
-                                sizedBoxWidth(40),
-                                Image.asset(
-                                  "assets/1.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                sizedBoxWidth(10),
-                                Image.asset(
-                                  "assets/2.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                sizedBoxWidth(10),
-                                Image.asset(
-                                  "assets/3.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                sizedBoxWidth(10),
-                                Image.asset(
-                                  "assets/4.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                                sizedBoxWidth(10),
-                                Image.asset(
-                                  "assets/5.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        const SocialMediaIcons(),
                         sizedBoxHeight(30),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              "Business User ?",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.grey.withOpacity(.8)),
-                            ),
-                            Text(
-                              "Dont Have An Account",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.grey.withOpacity(.8)),
-                            ),
+                            TextsBelowSocialMediaIcons(text: "Business User?"),
+                            TextsBelowSocialMediaIcons(
+                                text: "Dont Have An Account")
                           ],
                         ),
                         const Padding(
@@ -285,20 +226,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "Login Here",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.blue),
-                              ),
-                              Text(
-                                "SignUp",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.blue),
-                              ),
+                              BlueTextBelowSocialMedia(text: "Login Here"),
+                              BlueTextBelowSocialMedia(text: "SignUp"),
                             ],
                           ),
                         )

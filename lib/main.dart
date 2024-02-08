@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:promilo_task/blocs/login/login_bloc.dart';
+
 import 'package:promilo_task/screens/login_screen/login_screen.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'blocs/bloc/login_bloc.dart';
 
 void main() {
   runApp(const MyApp());

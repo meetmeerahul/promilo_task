@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:promilo_task/utils/sized_box.dart';
 
-import '../../blocs/bloc/login_bloc.dart';
+import '../../blocs/login/login_bloc.dart';
 import 'widgets/blue_text_below_socialmedia.dart';
 import 'widgets/social_media_icons.dart';
 import 'widgets/text_above_text_box.dart';

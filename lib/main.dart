@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo_task/screens/description_screen/description_screen.dart';
 
 import 'package:promilo_task/screens/login_screen/login_screen.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomeScreen(),
+        home:  DescriptionScreen(),
       ),
     );
   }

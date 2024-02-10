@@ -29,6 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Divider(
+              color: Colors.grey[300],
+            ),
             const TopSearchBox(),
             const ImageCarouselWithDots(),
             const HeadingsTrendings(text: "Trending Popular People"),

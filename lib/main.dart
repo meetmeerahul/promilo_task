@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:promilo_task/screens/description_screen/description_screen.dart';
 
 import 'package:promilo_task/screens/login_screen/login_screen.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/bottomnav_bloc/bottomnav_bloc.dart';
 import 'blocs/login/login_bloc.dart';
-import 'screens/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +14,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginBloc(),
+        ),
+        BlocProvider(
+          create: (context) => BottomnavBloc(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -27,7 +32,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  DescriptionScreen(),
+        home: const LoginScreen(),
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:promilo_task/screens/description_screen/widgets/reactions.dart';
 
 import 'widgets/bottom_buttons.dart';
 import 'widgets/top_image_slider.dart';
+import 'widgets/under_descriptions.dart';
 
 class DescriptionScreen extends StatefulWidget {
   const DescriptionScreen({super.key});
@@ -19,9 +21,12 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           "Description",
           style: TextStyle(color: Colors.blue[900]),
         ),
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.blue[900],
+        leading: GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.blue[900],
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -30,12 +35,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             Divider(
               color: Colors.grey[300],
             ),
-            const SizedBox(
-              height: 600, // Adjust the height of the SizedBox
-              child: Column(
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: const Column(
                 children: [
                   ImageCarousel(),
                   BottomButtons(),
+                  ReactionsWidgets(),
+                  UnderDescriptions()
                 ],
               ),
             )

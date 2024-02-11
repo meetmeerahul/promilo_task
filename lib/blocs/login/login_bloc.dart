@@ -7,12 +7,9 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc()
-      : super(const LoginInitial(
-          isLogged: false,
-        )) {
+  LoginBloc() : super(LoginInitial(isLoading: false, isLogged: false)) {
     on<LoginEvent>((event, emit) {
-      emit(const LoginState(isLogged: false));
+      emit(LoginState(isLogged: false, isLoading: true));
     });
 
     on<LoginCheckEvent>((event, emit) async {
@@ -22,16 +19,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (status == "Success") {
         print("success");
-        emit(const LoginState(
-          isLogged: true,
-        ));
+        emit(LoginSuccess(isLogged: true, isLoading: false));
       } else {
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(event.ctx).showSnackBar(const SnackBar(
           content: Text("Invalid Credentials"),
           backgroundColor: Colors.red,
         ));
-        emit(const LoginState(isLogged: false));
+        emit(LoginState(isLogged: false, isLoading: false));
       }
     });
   }

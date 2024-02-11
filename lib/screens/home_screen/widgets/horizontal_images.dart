@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:promilo_task/screens/description_screen/description_screen.dart';
+
+import '../../../utils/bottom_nav.dart';
 
 class HorizontalImageList extends StatelessWidget {
   const HorizontalImageList({super.key});
@@ -22,13 +25,22 @@ class HorizontalImageList extends StatelessWidget {
                   color: Colors.grey[300],
                 ),
                 child: Center(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      "assets/t${index + 1}.jpg",
-                      width: 150,
-                      fit: BoxFit
-                          .fill, // Fill the container maintaining aspect ratio
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => bottomNavScreen[2],
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        "assets/t${index + 1}.jpg",
+                        width: 150,
+                        fit: BoxFit
+                            .fill, // Fill the container maintaining aspect ratio
+                      ),
                     ),
                   ),
                 ),
